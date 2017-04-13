@@ -12,13 +12,6 @@ require "rails_helper"
 
 feature "user searches store by zip code" do
   scenario "they visit root" do
-    store = Store.new(name: "Store 100",
-                         city: "Denver",
-                         distance: 1.0,
-                         phone_number: "123-456-7890",
-                         store_type: "big",
-                         zip: "80204")
-
     visit root_path
     VCR.use_cassette("features/search") do
       fill_in "search", with: "80204"
@@ -26,7 +19,7 @@ feature "user searches store by zip code" do
 
       expect(current_path).to eq(search_path)
       within("#results") do
-        expect(page).to have_content("10 Total Stores")
+        expect(page).to have_content("7 Total Stores")
       end
     end
   end
