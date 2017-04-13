@@ -30,3 +30,13 @@ describe "get show" do
 
   end
 end
+
+describe "delete item" do
+  it "should be a success" do
+    item = Fabricate(:item)
+
+    delete "api/v1/items/#{item.id}"
+
+    expect(response.status).to eq(204)
+  end
+end
