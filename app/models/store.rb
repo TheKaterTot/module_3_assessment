@@ -18,4 +18,8 @@ class Store
   def distance
     @data["distance"]
   end
+
+  def store_type
+    @data["storeType"]
+  end
 end
