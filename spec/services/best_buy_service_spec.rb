@@ -9,7 +9,7 @@ describe BestBuyService do
         stores = BestBuyService.get_stores_by_zip(zip)
         store = stores.first
 
-        expect(stores.count).to eq(7)
+        expect(stores.count).to eq(10)
         expect(store.name).to eq("BELMAR CO")
       end
     end

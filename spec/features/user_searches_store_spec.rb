@@ -9,7 +9,7 @@ feature "user searches store by zip code" do
       expect(current_path).to eq(search_path)
 
       within("#results") do
-        expect(page).to have_content("7 Total Stores")
+        expect(page).to have_content("10 Total Stores")
         expect(page).to have_content("BELMAR CO")
         expect(page).to have_content(3.84)
         expect(page).to have_content("CENTENNIAL")
