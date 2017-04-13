@@ -21,7 +21,8 @@ feature "user searches store by zip code" do
 
     visit root_path
     VCR.use_cassette("features/search") do
-      fill_in "Search", with: "80204"
+      fill_in "search", with: "80204"
+      click_on("Search")
 
       expect(current_path).to eq(search_path)
       within("#results") do
