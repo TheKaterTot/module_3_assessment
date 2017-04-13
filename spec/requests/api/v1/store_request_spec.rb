@@ -14,3 +14,19 @@ describe "get index" do
     expect(items.last["name"]).to eq("No")
   end
 end
+
+describe "get show" do
+  it "should be a success" do
+    item = Fabricate(:item)
+
+    get "api/v1/items/#{item.id}"
+
+    expect(response).to be_success
+
+    item = JSON.parse(response.body)
+    expect(item["name"]).to eq("Item")
+    expect(item["description"]).to eq("So good")
+    expect(item["image_url"]).to eq("None")
+
+  end
+end

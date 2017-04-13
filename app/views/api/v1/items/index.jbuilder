@@ -1,3 +1,3 @@
 json.(@items) do |item|
-  json.(item, :id, :name, :description)
+  json.(item, :id, :name, :description, :image_url)
 end
