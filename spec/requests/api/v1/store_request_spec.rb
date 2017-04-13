@@ -27,7 +27,6 @@ describe "get show" do
     expect(item["name"]).to eq("Item")
     expect(item["description"]).to eq("So good")
     expect(item["image_url"]).to eq("None")
-
   end
 end
 
@@ -38,5 +37,18 @@ describe "delete item" do
     delete "api/v1/items/#{item.id}"
 
     expect(response.status).to eq(204)
+  end
+end
+
+describe "create item" do
+  it "should be a success" do
+    post "api/v1/items", item: { name: "Fancy Pants",
+                                 description: "Fancy",
+                                 image_url: "NO"}
+                                 
+    expect(response.status).to eq(201)
+
+    item = JSON.parse(response.body)
+    expect(item["name"]).to eq("Fancy Pants")
   end
 end
