@@ -1,12 +1,10 @@
 <div id="results">
 <p><%= @stores.count %> Total Stores</p>
 <% @stores.each do |store| %>
-  <div id="store=#{store.id}">
     <%= store.name %> <br>
     <%= store.city %> <br>
     <%= store.phone %> <br>
     <%= store.distance %> <br>
     <hr>
-  </div>
   <% end %>
 </div>
