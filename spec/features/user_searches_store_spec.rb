@@ -21,6 +21,15 @@ feature "user searches store by zip code" do
       within("#results") do
         expect(page).to have_content("7 Total Stores")
       end
+      within("store-1") do
+        expect(page).to have_content("BELMAR CO")
+      end
+      within("store-2") do
+        expect(page).to have_content(3.84)
+      end
+      within("store-7") do
+        expect(page).to have_content("CENTENNIAL")
+      end
     end
   end
 end
