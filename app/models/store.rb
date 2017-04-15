@@ -1,25 +1,16 @@
 class Store
+  attr_reader :name,
+              :city,
+              :phone,
+              :distance,
+              :store_type
+
   def initialize(data)
     @data = data
-  end
-
-  def name
-    @data["name"]
-  end
-
-  def city
-    @data["city"]
-  end
-
-  def phone
-    @data["phone"]
-  end
-
-  def distance
-    @data["distance"]
-  end
-
-  def store_type
-    @data["storeType"]
+    @name = @data["name"]
+    @city = @data["city"]
+    @phone = @data["phone"]
+    @distance = @data["distance"]
+    @store_type = @data["storeType"]
   end
 end
