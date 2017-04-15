@@ -1,12 +1,15 @@
 require "rails_helper"
 
 describe Store do
-  let(:store) { Store.new({"name" => "hello",
-                           "city" => "williams",
-                           "distance" => 3.0,
-                           "phone" => "1234567890",
-                           "storeType" => "box"}
-               )}
+  let(:attrs) { {"name" => "hello",
+                 "city" => "williams",
+                 "distance" => 3.0,
+                 "phone" => "1234567890",
+                 "storeType" => "box"}
+             }
+
+  let(:store) { Store.new(attrs) }
+
   describe "#name" do
     it "returns the store name" do
       expect(store.name).to eq("hello")
@@ -34,6 +37,16 @@ describe Store do
   describe "#store_type" do
     it "returns the type of store" do
       expect(store.store_type).to eq("box")
+    end
+  end
+
+  describe ".get_stores_by_zip" do
+    it "returns all stores by zip" do
+      expect(BestBuyService).to receive(:get_stores_by_zip)
+        .with("80204")
+        .and_return([attrs])
+
+      Store.get_stores_by_zip("80204")
     end
   end
 end
